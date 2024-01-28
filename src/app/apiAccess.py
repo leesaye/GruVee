@@ -7,13 +7,9 @@ def get_songs(year: str, country: str) -> dict[str: str]:
     scope = "user-library-read"
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
-    # q = String.init(format:"artist:%@ track:%@", artistName, trackName)
-
     search_query = 'year:' + year + ' genre:' + country
     results = sp.search(q=search_query)
-    # results = sp.search(q=f'genre: {genre}&year: {year}', limit=10, type="track")
 
-    print(results)
     if len(results["tracks"]["items"]) == 0:
         return {}
 
@@ -21,13 +17,5 @@ def get_songs(year: str, country: str) -> dict[str: str]:
         track_name = results["tracks"]["items"][i]["name"]
         artist = results["tracks"]["items"][i]["artists"][0]["name"]
         songs[track_name] = artist
-        # explicit = results["tracks"]["items"][i]['explicit']
 
-    # image =
-
-    # with open("testestest.json", "w") as text_file:
-    #     text_file.write(str(results))
-    #     text_file.close()
-
-    # print(results["tracks"])
     return songs
