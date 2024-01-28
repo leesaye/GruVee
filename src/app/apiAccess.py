@@ -25,11 +25,9 @@ def get_songs(year: str, country: str) -> dict[str: str]:
 
     # image =
 
-    with open("testestest.json", "w") as text_file:
-        text_file.write(str(results))
-        text_file.close()
+    # with open("testestest.json", "w") as text_file:
+    #     text_file.write(str(results))
+    #     text_file.close()
 
     # print(results["tracks"])
     return songs
-
-# def parse_response(j_response: dict[str: str]) -> None:
